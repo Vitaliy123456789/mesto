@@ -8,7 +8,7 @@
   margin: 0;
   margin-bottom: 54px;
   margin-top: 34px;
-  margin-left: 36px ;
+  margin-left: 36px;
 }
 @media (max-width: 767px) {
   .popup__container-title{
@@ -16,6 +16,6 @@
     line-height: 22px;
     margin-bottom: 75px;
     margin-top: 25px;
-    margin-left: 22px ;
+    margin-left: 22px;
   }
 }
