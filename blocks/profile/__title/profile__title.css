@@ -1,4 +1,4 @@
-.profie__title{
+.profile__title{
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
@@ -10,7 +10,7 @@
   margin-right: 18px;
 }
 @media (max-width: 767px) {
-  .profie__title{
+  .profile__title{
     font-size: 27px;
     line-height: 33px;
     text-align: center;
