@@ -1,4 +1,4 @@
-.popup__button{ 
+.popup__button{
   background-color: transparent;
   border: none;
   align-self: flex-end;
@@ -11,8 +11,8 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  } 
-  .popup__button:hover{ 
+  }
+  .popup__button:hover{
     opacity: 0.6;
 }
   @media (max-width: 767px){
