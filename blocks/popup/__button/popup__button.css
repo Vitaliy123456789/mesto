@@ -1,6 +1,6 @@
 .popup__button{ 
-  background-color: transparent; 
-  border: none; 
+  background-color: transparent;
+  border: none;
   align-self: flex-end;
   width: 32px;
   height: 32px;
@@ -13,11 +13,11 @@
   background-position: center;
   } 
   .popup__button:hover{ 
-    opacity: 0.6; 
+    opacity: 0.6;
 }
-  @media (max-width: 767px) { 
-    .popup__button{ 
-      margin-bottom: 16px; 
+  @media (max-width: 767px){
+    .popup__button{
+      margin-bottom: 16px;
       width: 20px;
       height: 20px;
       top: 87px;
