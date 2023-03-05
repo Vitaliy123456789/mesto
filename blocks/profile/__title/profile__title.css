@@ -1,5 +1,5 @@
 .profile__title{
-  font-family: 'Inter';
+  font-family: 'Inter','Arial';
   font-style: normal;
   font-weight: 500;
   font-size: 42px;
@@ -8,6 +8,10 @@
   margin: 0;
   margin-bottom: 16px;
   margin-right: 18px;
+  max-width: 294px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 @media (max-width: 767px) {
   .profile__title{
