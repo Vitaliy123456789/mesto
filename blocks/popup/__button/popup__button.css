@@ -5,7 +5,7 @@
   width: 32px;
   height: 32px;
   position: absolute;
-  top: 155px;
+  top: 188px;
   right: 385px;
   background-image: url(../../../images/CloseIcon.svg);
   background-repeat: no-repeat;
@@ -15,12 +15,25 @@
   .popup__button:hover{
     opacity: 0.6;
 }
+@media (max-width: 1279px){
+  .popup__button{
+    top: 125px;
+    right: 255px;
+  } 
+} 
+@media (max-width: 1023px){
+  .popup__button{
+    top: 130px;
+    right: 130px;
+  } 
+} 
   @media (max-width: 767px){
     .popup__button{
       margin-bottom: 16px;
       width: 20px;
       height: 20px;
-      top: 87px;
+      top: 140px;
       right: 19px;
     } 
   } 
+

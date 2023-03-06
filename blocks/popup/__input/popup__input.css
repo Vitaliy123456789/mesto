@@ -1,10 +1,10 @@
-.popup__container-input{
+.popup__input{
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   width: 358px;
   margin-left: 36px;
   padding: 0;
-  font-family: 'Inter','Arial';
+  font-family: 'Inter','Arial', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -13,11 +13,11 @@
   padding-bottom: 13px;
   margin-bottom: 30px;
 }
-.popup__container-input:nth-child(2n){
+.popup__input:nth-child(2n){
   margin-bottom: 0px;
 }
 @media (max-width: 767px){
-  .popup__container-input{
+  .popup__input{
     width: 238px;
     margin-left: 22px;
   }
