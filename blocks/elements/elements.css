@@ -5,7 +5,6 @@
   grid-template-rows: repeat(2, 1fr);
   gap: 20px 17px;
   padding-top: 51px;
-  aligm-items: center;
 }
 
 @media (max-width: 1023px) {
