@@ -1,0 +1,32 @@
+.popup-cards__container-button{
+  width: 358px;
+  height: 50px;
+  background: #000000;
+  border-radius: 2px;
+  font-family: 'Inter','Arial', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #FFFFFF;
+  margin-left: 36px;
+  margin-top: 48px;
+  margin-bottom: 37px;
+  border: none;
+}
+.popup-cards__container-button:hover{ 
+  opacity: 0.8;
+  cursor: pointer;
+}
+@media (max-width: 767px){
+  .popup-cards__container-button{
+    width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+    margin-left: 22px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+}
