@@ -31,32 +31,32 @@
     <footer class="footer">
       <p class="footer__title">© 2020 Mesto Russia</p>
     </footer>
-    <div class="popup">
-      <div class="popup__container">
-        <button type="button" class="popup__button"></button>
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="popapform">
+    <div class="popup popup-profile">
+      <div class="popup__container popup-profile__container">
+        <button type="button" class="popup__button popup-profile__button"></button>
+        <h3 class="popup__title popup-profile__title">Редактировать профиль</h3>
+        <form class="popup__form popup-profile__form" name="popapform">
           <input type="text" class="popup__input popup__input_title_name" name="name" placeholder="Имя">
           <input type="text" class="popup__input popup__input_title_job" name="job" placeholder="Работа">
-          <button type="submit" class="popup__container-button">Сохранить</button>
+          <button type="submit" class="popup__container-button popup-profile__container-button">Сохранить</button>
         </form>
       </div>
     </div>
-    <div class="popup-cards">
-      <div class="popup-cards__container">
-        <button type="button" class="popup-cards__button"></button>
-        <h3 class="popup-cards__title">Новое место</h3>
-        <form class="popup-cards__form" name="popapcardform">
-        <input type="text" class="popup-cards__input popup-cards__input_name" name="place" placeholder="Название">
-        <input type="url" class="popup-cards__input popup-cards__input_url" name="address" placeholder="Ссылка на картинку">
-        <button type="submit" class="popup-cards__container-button">Создать</button>
+    <div class="popup popup-cards">
+      <div class="popup__container popup-cards__container">
+        <button type="button" class="popup__button popup-cards__button"></button>
+        <h3 class="popup__title popup-cards__title">Новое место</h3>
+        <form class="popup__form popup-cards__form" name="popapcardform">
+        <input type="text" class="popup__input popup-cards__input popup-cards__input_name" name="place" placeholder="Название">
+        <input type="url" class="popup__input popup-cards__input popup-cards__input_url" name="address" placeholder="Ссылка на картинку">
+        <button type="submit" class="popup__container-button popup-cards__container-button">Создать</button>
       </form>
       </div>
     </div>
-    <div class="popup-opencard">
-      <div class="popup-opencard__container">
-        <button class="popup-opencard__button"></button>
-        <img src="." class="popup-opencard__img">
+    <div class=" popup popup-opencard">
+      <div class="popup__container popup-opencard__container popup__container_none-color">
+        <button class="popup__button popup-opencard__button"></button>
+        <img alt="." src="." class="popup-opencard__img">
         <h3 class="popup-opencard__title"></h3>
       </div>
     </div>
