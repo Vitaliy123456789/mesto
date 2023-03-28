@@ -121,7 +121,7 @@ function handleFormSubmit (evt) {
   evt.preventDefault(); 
   nameTitle.textContent = nameInput.value;
   jobTitle.textContent = jobInput.value;
-  closePopup()
+  closePopup(popupElement);
 };
 
 function openPopup(popup) {
