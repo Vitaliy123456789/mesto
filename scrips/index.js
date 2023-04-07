@@ -126,16 +126,31 @@ function handleFormSubmit (evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupKey)
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  
 }
+function closePopupKey(evt){
+  if (evt.key === 'Escape'){
+    const popupKey = document.querySelector('.popup_opened')
+    closePopup(popupKey);
+  }
+}
+function closePopupClickOverplay(event){ 
+  const popupOver = document.querySelector('.popup_opened')
+  if (event.target !== event.currentTarget){ 
+    return; 
+  } 
+  closePopup(popupOver) 
+} 
 
 formElement.addEventListener('submit', handleFormSubmit);
 popupOpenButtonElement.addEventListener('click', openPopupProfile);
 popupCloseButtonElement.addEventListener('click', closePopupProfile);
 popupCardsOpenButtonElement.addEventListener('click', openPopupCards);
 popupCardsCloseButtonElement.addEventListener('click', closePopupCards);
-
-
-
+popupElement.addEventListener('click', closePopupClickOverplay);
+popupCardsElement.addEventListener('click', closePopupClickOverplay);
+popupOpenCard.addEventListener('click', closePopupClickOverplay);
