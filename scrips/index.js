@@ -126,10 +126,12 @@ function handleFormSubmit (evt) {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', closePopupKey)
+  document.addEventListener('keydown', closePopupKey);
+  disablebutton(cardButton, enableValidationConfig )
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupKey)
   
 }
 function closePopupKey(evt){
@@ -139,10 +141,10 @@ function closePopupKey(evt){
   }
 }
 function closePopupClickOverplay(event){ 
-  const popupOver = document.querySelector('.popup_opened')
   if (event.target !== event.currentTarget){ 
     return; 
   } 
+  const popupOver = document.querySelector('.popup_opened')
   closePopup(popupOver) 
 } 
 

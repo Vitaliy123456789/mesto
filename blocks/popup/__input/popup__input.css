@@ -22,6 +22,3 @@
     margin-left: 22px;
   }
 }
-.popup__input:invalid{
-  border-bottom: 1px solid #FF0000;
-}
