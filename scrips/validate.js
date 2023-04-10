@@ -26,24 +26,26 @@ const setEvent = (formTo,{inputSelector, submitButtonSelector, ...rest }) =>{
    disablebutton(formButton, rest)
   formInputs.forEach(input => {
     input.addEventListener('input', () => {
-       checkInputValid(input)
+       checkInputValid(input, rest)
       if (hasInvalidInput(formInputs)) {
         disablebutton(formButton, rest)
-        addRed(input, rest);
+        
       } else {
         enabelButton(formButton, rest)
-        removeRed(input, rest)
+        
       }
     })
   })
 }
 
-const checkInputValid = (input) => {
+const checkInputValid = (input, {errorClass, ...rest}) => {
   const inputErrorMes = document.querySelector(`#${input.id}-error`)
 if (input.checkValidity()){
   inputErrorMes.textContent = ''
+  removeRed(input, rest)
 } else {
   inputErrorMes.textContent = input.validationMessage
+  addRed(input, rest);
 }
 }
 
@@ -51,7 +53,7 @@ const hasInvalidInput = (formInputs) =>{
   return formInputs.some(item => !item.validity.valid)
 }
 
-const enabelButton = (button, {activeButtonclass, inactiveButtonclass}) => {
+const enabelButton = (button, {activeButtonclass, inactiveButtonclass }) => {
 button.classList.add(activeButtonclass);
 button.classList.remove(inactiveButtonclass);
 button.removeAttribute('disabled'); 
@@ -65,7 +67,7 @@ button.setAttribute('disabled', true)
  const addRed = (input, {inputErrorClass}) =>{
      input.classList.add(inputErrorClass);
 }
-const removeRed = (input,{inputErrorClass} ) => {
+const removeRed = (input,{inputErrorClass}) => {
   input.classList.remove(inputErrorClass);
 }
 

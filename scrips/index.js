@@ -67,6 +67,7 @@ function cardformSubmit (evt) {
   renderCard(item);
   closePopupCards();
   evt.target.reset()
+  disablebutton(cardButton, enableValidationConfig);
 };
 
 formElementCard.addEventListener('submit', cardformSubmit);
@@ -127,7 +128,7 @@ function handleFormSubmit (evt) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupKey);
-  disablebutton(cardButton, enableValidationConfig )
+ 
 }
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
