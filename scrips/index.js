@@ -1,6 +1,6 @@
 import {FormValidator} from './FormValidator.js'
 import {Card} from './Card.js'
-export {cardButton, popupImage, popupTitle, popupOpenCard, openPopup,}
+export {cardPopupButtonСreate, popupImage, popupTitle, popupOpenCard, openPopup,}
 const profileForm = document.querySelector('.popup-profile__form');
 const nameInput = document.querySelector('.popup__input_title_name');
 const jobInput = document.querySelector('.popup__input_title_job');
@@ -9,18 +9,19 @@ const jobTitle = document.querySelector('.profile__subtitle');
 const profilePopup = document.querySelector('.popup-profile');
 const profileCloseButton = profilePopup.querySelector('.popup-profile__button');
 const profileOpenButton = document.querySelector('.profile__button');
-const popupCardsElement = document.querySelector('.popup-cards');
-const popupCardsCloseButtonElement = document.querySelector('.popup-cards__button');
-const popupCardsOpenButtonElement = document.querySelector('.profile__addbutton');
+const cardsPopup = document.querySelector('.popup-cards');
+const cardsPopupCloseButton = document.querySelector('.popup-cards__button');
+const cardsPopupOpenButton= document.querySelector('.profile__addbutton');
 const cardInputName = document.querySelector('.popup-cards__input_name');
 const cardInputUrl = document.querySelector('.popup-cards__input_url');
-const cardButton = document.querySelector('.popup-cards__container-button');
+const cardPopupButtonСreate = document.querySelector('.popup-cards__container-button');
 const popupOpenCard = document.querySelector('.popup-opencard');
 const popupOpenCardButton = document.querySelector('.popup-opencard__button');
 const formElementCard = document.querySelector('.popup-cards__form');
 const popupImage = document.querySelector('.popup-opencard__img');
 const popupTitle = document.querySelector('.popup-opencard__title');
 const cardSection = document.querySelector('.elements')
+const cardTemplate = document.querySelector(".item-template");
 const initialCards = [
   {
     name: 'Архыз',
@@ -56,10 +57,10 @@ const enableValidationConfig = {
   inputErrorClass: 'popup__input_error',
 }; 
 const profileFormValidation = new FormValidator(enableValidationConfig, profileForm)
-const cardeFormValidation = new FormValidator(enableValidationConfig, formElementCard)
+const cardFormValidation = new FormValidator(enableValidationConfig, formElementCard)
 
 profileFormValidation.enableValidation();
-cardeFormValidation.enableValidation();
+cardFormValidation.enableValidation();
 
 function closeCardPopup (){
   closePopup(popupOpenCard);
@@ -67,11 +68,11 @@ function closeCardPopup (){
 
 popupOpenCardButton.addEventListener('click', closeCardPopup);
 const openPopupCards = function(){
-  openPopup(popupCardsElement);
+  openPopup(cardsPopup);
 }
 
 const closePopupCards = function(){
-  closePopup(popupCardsElement);
+  closePopup(cardsPopup);
 };
 const openPopupProfile = function(){
   openPopup(profilePopup);
@@ -118,27 +119,27 @@ function closePopupClickOverplay(event){
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 profileOpenButton.addEventListener('click', openPopupProfile);
 profileCloseButton.addEventListener('click', closePopupProfile);
-popupCardsOpenButtonElement.addEventListener('click', openPopupCards);
-popupCardsCloseButtonElement.addEventListener('click', closePopupCards);
+cardsPopupOpenButton.addEventListener('click', openPopupCards);
+cardsPopupCloseButton.addEventListener('click', closePopupCards);
 profilePopup.addEventListener('click', closePopupClickOverplay);
-popupCardsElement.addEventListener('click', closePopupClickOverplay);
+cardsPopup.addEventListener('click', closePopupClickOverplay);
 popupOpenCard.addEventListener('click', closePopupClickOverplay);
 
 
-const handleformSubmit = (evt) => {
+const handleCardFormSubmit = (evt) => {
   evt.preventDefault();
   const item = { name:cardInputName.value , link:cardInputUrl.value } 
   const cardElement = createCard(item)
   cardSection.prepend(cardElement);
    closePopupCards();
    evt.target.reset()
-   cardeFormValidation.disablebutton(cardButton)
+   cardFormValidation.disablebutton();
  };
 
- formElementCard.addEventListener('submit', handleformSubmit);
+ formElementCard.addEventListener('submit', handleCardFormSubmit);
 
  function createCard(item) {
-  const card = new Card(item.name, item.link);
+  const card = new Card(item.name, item.link, cardTemplate);
   const cardElement = card.generalCard();
   return cardElement
 }

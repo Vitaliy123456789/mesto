@@ -5,10 +5,10 @@ import {
   openPopup,
 } from "./index.js";
 export class Card {
-  constructor(name, link) {
+  constructor(name, link, template) {
     this._name = name;
     this._link = link;
-    this._template = document.querySelector(".item-template");
+    this._template = template;
   }
   _getTemplate() {
     return this._template.content.cloneNode(true);
