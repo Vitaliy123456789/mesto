@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Mesto</title>
   </head>
   <body class="page">
     <header class="header">
-      <img src="./images/Vector.svg" alt="логотип Mesto" class="header__img">
+      <img src="<%=require('./images/Vector.svg')%>" alt="логотип Mesto" class="header__img">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__content">
-          <img src="./images/image.jpg" alt="аватарка пользователя" class="profile__img">
+          <img src="<%=require('./images/image.jpg')%>" alt="аватарка пользователя" class="profile__img">
           <div class="profile__info ">
             <div class="profile__name">
               <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -73,8 +72,5 @@
         </div>
       </div>
     </template>
-    <script type="module" src="./scrips/index.js"></script>
-    <script type="module" src="./scrips/FormValidator.js"></script>
-    <script type="module" src="./scrips/Card.js"></script> 
   </body>
 </html>

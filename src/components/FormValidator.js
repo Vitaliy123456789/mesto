@@ -20,7 +20,6 @@ export class FormValidator {
     this._formInputs = Array.from(
       this._form.querySelectorAll(this._inputSelector)
     );
-    
     this.disablebutton(this._formButton);
     this._formInputs.forEach((input) => {
       input.addEventListener("input", () => {

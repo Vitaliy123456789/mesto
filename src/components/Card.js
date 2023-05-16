@@ -1,13 +1,11 @@
-import {
-  popupImage,
-  popupTitle,
-  popupOpenCard,
-  openPopup,
-} from "./index.js";
+
+
+
 export class Card {
-  constructor(name, link, template) {
-    this._name = name;
-    this._link = link;
+  constructor( {data, handleCardClick}, template) {
+    this._name = data.name;
+    this._link = data.link;
+    this._handleCardClick = handleCardClick
     this._template = template;
   }
   _getTemplate() {
@@ -25,12 +23,7 @@ export class Card {
   _toggleLike = (event) => {
     event.target.classList.toggle("elements__group-button_active");
   };
-  _openCarPopup = (evt) => {
-    popupImage.src = evt.target.src;
-    popupImage.alt = evt.target.alt;
-    popupTitle.textContent = evt.target.alt;
-    openPopup(popupOpenCard);
-  };
+
   _deleteCard = (event) => {
     const card = event.target.closest(".elements__element");
     card.remove();
@@ -38,6 +31,6 @@ export class Card {
   _setEventListeners() {
     this._element.querySelector(".elements__button-delite").addEventListener("click", this._deleteCard);
     this._element.querySelector(".elements__group-button").addEventListener("click", this._toggleLike);
-    this._cardImage.addEventListener("click", this._openCarPopup);
+    this._cardImage.addEventListener("click", this._handleCardClick);
   }
 }
