@@ -59,32 +59,32 @@ const cardFormValidation = new FormValidator(enableValidationConfig, formElement
 profileFormValidation.enableValidation();
 cardFormValidation.enableValidation();
 
-function handleProfileFormSubmit () {
-  profileInfo.setUserInfo()
-  popupProfil.close();
-  
+function handleProfileFormSubmit (data) {
+  profileInfo.setUserInfo({userName: data.name, userInfo: data.job})
+  popupEditProfile.close();
 };
 
 profileOpenButton.addEventListener('click', () =>{
-  popupProfil.open()
-  profileInfo.getUserInfo()
+  popupEditProfile.open()
+  const profileData = profileInfo.getUserInfo();
+  nameInput.value = profileData.userName;
+  jobInput.value = profileData.userInfo;
 });
 cardsPopupOpenButton.addEventListener('click', () =>{
-  popupCards.open()
+  popupAddCard.open()
 });
 
-const handleCardFormSubmit = () => {
-  const item = { name:cardInputName.value , link:cardInputUrl.value } 
-  const cardElement = createCard(item)
-  cardSection.prepend(cardElement);
-  popupCards.close();
+const handleCardFormSubmit = (inputInfo) => {
+  const cardElement = createCard(inputInfo)
+  section.addItem(cardElement);
    cardFormValidation.disablebutton();
  };
 
 function createCard(item) {
-  const card = new Card({data: item, handleCardClick: ()=>{popupWith.open({name:item.name, link:item.link})} }, cardTemplate);
+  const card = new Card({data: item, handleCardClick: ()=>{popupImage.open({name:item.name, link:item.link})} }, cardTemplate);
   const cardElement = card.generalCard();
   return cardElement
+  
 }
 
 function renderCard(cardData) {
@@ -95,22 +95,13 @@ function renderCard(cardData) {
 const section = new Section({items: initialCards, renderer: renderCard}, cardSection)
 section.renderItems()
 
-const popupCards = new Popup (cardsPopup)
-popupCards.setEventListeners()
+const popupImage = new PopupWithImage(popupOpenCard);
+popupImage.setEventListeners()
 
-const popupProfil = new Popup (profilePopup)
-popupProfil.setEventListeners()
+const popupEditProfile = new PopupWithForm (profilePopup, handleProfileFormSubmit);
+popupEditProfile.setEventListeners();
 
-const popupWith = new PopupWithImage(popupOpenCard);
-popupWith.setEventListeners()
-
-
-const popupProf = new PopupWithForm (profilePopup, handleProfileFormSubmit)
-popupProf.setEventListeners()
-popupProf.close()
-
-const popupCard = new PopupWithForm (cardsPopup, handleCardFormSubmit)
-popupCard.setEventListeners()
-popupCard.close()
-
-const profileInfo = new UserInfo({nameSelector:nameInput , infoSelector:jobInput })
+const popupAddCard = new PopupWithForm (cardsPopup, handleCardFormSubmit)
+popupAddCard.setEventListeners()
+popupAddCard.close();
+const profileInfo = new UserInfo({profileNameSelector:'.profile__title', profileInfoSelector:'.profile__subtitle' })

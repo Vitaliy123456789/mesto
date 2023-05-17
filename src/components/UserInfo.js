@@ -1,18 +1,16 @@
 export class UserInfo{
-  constructor({nameSelector, infoSelector}){
-    this._nameSelector = nameSelector;
-    this._infoSelector = infoSelector;
-    this._nameSelectorTitle = document.querySelector('.profile__title');
-    this._infoSelectorTitle = document.querySelector('.profile__subtitle')
+  constructor({profileNameSelector, profileInfoSelector}){
+    this._profileName = document.querySelector(profileNameSelector);
+    this._profileInfo = document.querySelector(profileInfoSelector)
   }
   getUserInfo(){
-    this._nameTitleText = this._nameSelectorTitle.textContent; 
-    this._infoTitleText = this._infoSelectorTitle.textContent; 
-    this._nameSelector.value = this._nameTitleText; 
-    this._infoSelector.value = this._infoTitleText; 
+    return {
+      userName: this._profileName.textContent,
+      userInfo: this._profileInfo.textContent,
+    }
   }
-  setUserInfo(){
-    this._nameSelectorTitle.textContent = this._nameSelector.value;
-    this._infoSelectorTitle.textContent = this._infoSelector.value;
+  setUserInfo({userName, userInfo}){
+    this._profileName.textContent = userName;
+    this._profileInfo.textContent = userInfo;
   }
 }
