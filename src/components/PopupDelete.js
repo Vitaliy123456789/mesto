@@ -3,7 +3,7 @@ export class PopupDelete extends Popup {
   constructor(popupElement, confirmFunction){
     super(popupElement);
     this._confirmFunction = confirmFunction;
-    this._form = document.querySelector('.pupup__form-delete')
+    this._form = document.querySelector('.popup-delete')
   }
   open = (card, _id) => {
     super.open();
