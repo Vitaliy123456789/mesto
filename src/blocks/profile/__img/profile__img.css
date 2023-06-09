@@ -5,3 +5,8 @@
   display: block;
   object-fit: cover;
 }
+
+.profile__img:hover{
+  opacity: 0.2;
+  cursor: pointer;
+}

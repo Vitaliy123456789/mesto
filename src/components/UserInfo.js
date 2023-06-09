@@ -9,8 +9,8 @@ export class UserInfo{
       userInfo: this._profileInfo.textContent,
     }
   }
-  setUserInfo({userName, userInfo}){
-    this._profileName.textContent = userName;
-    this._profileInfo.textContent = userInfo;
+  setUserInfo(userData){
+    this._profileName.textContent = userData.userName;
+    this._profileInfo.textContent = userData.userInfo;
   }
 }

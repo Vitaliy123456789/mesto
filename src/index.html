@@ -13,11 +13,13 @@
     <main class="content">
       <section class="profile">
         <div class="profile__content">
-          <img src="<%=require('./images/image.jpg')%>" alt="аватарка пользователя" class="profile__img">
-          <div class="profile__info ">
+          <div class="profile__guidance">
+          <img src="" alt="аватарка пользователя" class="profile__img">
+          </div>
+          <div class="profile__info">
             <div class="profile__name">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <h2 class="profile__subtitle">Исследователь океана</h2>
+              <h1 class="profile__title"></h1>
+              <h2 class="profile__subtitle"></h2>
             </div>
             <button type="button" class="profile__button"></button>
           </div>
@@ -62,13 +64,36 @@
         <h3 class="popup-opencard__title"></h3>
       </div>
     </div>
+    <div class="popup popup-delete">
+      <div class="popup__container popup-delete__container">
+        <button class="popup__button"></button>
+        <h3 class="popup__title popup__title_delete">Вы уверены?</h3>
+        <form class="pupup__form-delete">
+        <button class="popup__container-button popup__container-button_delete">Да</button>
+      </form>
+      </div>
+    </div>
+    <div class="popup popup-avatar">
+      <div class="popup__container popup-avatar__container">
+      <button class="popup__button"></button>
+      <h3 class="popup__title popup-avatar__title">Обновить аватар</h3>
+      <form class="popup__form popup-avatar__form" name="popapavatarform" novalidate>
+        <input type="url" id='input-avatarurl' class="popup__input popup-avatar__input popup-avatar__input_url" name="avatar" placeholder="Ссылка на картинку" required>
+        <span id='input-avatarurl-error' class="popup__input-error"></span>
+        <button class="popup__container-button popup__container-button_avatar">Сохранить</button>
+      </form>
+    </div>
+    </div>
     <template class="item-template">
       <div class="elements__element">
         <button type="button" class="elements__button-delite"></button>
         <img src="." alt="фото" class="elements__element-img">
         <div class="elements__group">
           <h3 class="elements__group-title"></h3>
-          <button type="button" class="elements__group-button"></button>
+          <div class="elements__likes">
+            <button type="button" class="elements__group-button"></button>
+            <h3 class="elements__number-like"></h3>
+          </div>
         </div>
       </div>
     </template>
