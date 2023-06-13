@@ -14,12 +14,14 @@ export class PopupWithForm extends Popup{
       values[input.name] = input.value;})
       return values;
   }
-
+  renderLoading(){
+    this._button.textContent = 'Сохранение...'
+  }
+  
   setEventListeners(){
     super.setEventListeners();
     const submitPopup = (evt) => {
       evt.preventDefault();
-      this._button.textContent = 'Сохранение...'
       this._callBackSubmitForm(this._getInputValues());
       evt.target.reset(); 
     }

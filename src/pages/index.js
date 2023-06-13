@@ -41,6 +41,7 @@ cardFormValidation.enableValidation();
 avatarFormValidation.enableValidation()
 
 const handleProfileFormSubmit = (data) => {
+  popupEditProfile.renderLoading()
   api.editingUserProfile(data).then(res => {
     profileInfo.setUserInfo({userName: res.name, userInfo: res.about})
     popupEditProfile.close();
@@ -60,6 +61,7 @@ cardsPopupOpenButton.addEventListener('click', () =>{
 });
 
 const handleCardFormSubmit = (inputInfo) => {
+  popupAddCard.renderLoading()
   api.getCreateCards(inputInfo).then((res) => {
     const cardElement = createCard(res)
     section.newAddItem(cardElement);
@@ -114,8 +116,10 @@ popupImage.setEventListeners()
 const popupEditProfile = new PopupWithForm (profilePopup, handleProfileFormSubmit);
 popupEditProfile.setEventListeners();
 
+
 const popupAddCard = new PopupWithForm (cardsPopup, handleCardFormSubmit)
 popupAddCard.setEventListeners()
+
 
 const profileInfo = new UserInfo({profileNameSelector:'.profile__title', profileInfoSelector:'.profile__subtitle' })
 
@@ -128,24 +132,12 @@ const api = new Api({
 }); 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
 .then(([data, cards]) => {
+  profileAvatar.src = data.avatar;
   userId = data._id;
-  profileInfo.setUserInfo(data);
+  profileInfo.setUserInfo({userName: data.name, userInfo: data.about});
   section.renderItems(cards)
 }).catch((err) => {
   console.log(err);
-});
-api.getInitialCards().then((res) =>{
-  const items = res
-  section.renderItems(items);
-}).catch((err) => {
-  console.log(err);
-});
-api.getUserInfo().then((res) =>{
-  profileInfo.setUserInfo({userName: res.name, userInfo: res.about});
-  profileAvatar.src = res.avatar;
-  userId = res._id
-}).catch((err) => {
-  console.log(err); 
 });
 
 profileAvatar.addEventListener('click', () =>{
@@ -153,6 +145,7 @@ profileAvatar.addEventListener('click', () =>{
 });
 
 const handleAvatarFormSubmit = (data) => {
+  popupEditAvatar.renderLoading()
   api.getUserAvatar(data).then(res =>{
     profileAvatar.src = res.avatar;
     popupEditAvatar.close()
